@@ -1,0 +1,34 @@
+img {
+    display:block;
+    margin:auto;
+    padding:20px;
+}
+
+img.techhire {
+    padding:0px;
+}
+
+.dropdown-menu li:hover {
+    background-color:rgb(247, 247, 247);
+}
+
+.dropdown-menu a, .dropdown-menu a:hover, .notZelda, .notZelda:hover {
+    color:black;
+    text-decoration: none;
+}
+
+p small {
+    text-align: center;
+}
+
+@media (min-width: 576px) { 
+    img.techhire {
+        width:"100%";
+    }
+ }
+
+ @media (min-width: 768px) {
+     img.techhire {
+         width:"25%";
+     }
+ }

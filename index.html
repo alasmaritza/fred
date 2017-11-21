@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>LAPD Fred</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        #map {
+            width: 500px;
+            height: 250px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="logoph.png">
+        <div class="row">
+            <div class="col-md-8 offset-md-2 col-sm-12">
+                <div class="input-group">
+                    <input type="text" class="form-control resourceSearch dropdown-toggle" placeholder="Find Resource" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="true">
+                    <ul class="dropdown-menu col-md-10">
+                        <li>
+                            <a href="#">A Place of Worship</a>
+                        </li>
+                        <li>
+                            <a href="#">Clergy Council</a>
+                        </li>
+                        <li>
+                            <a href="#">Homeless</a>
+                        </li>
+                        <li>
+                            <a href="#">LAPD Valley Bureau Community Police Stations</a>
+                        </li>
+                    </ul>
+                    <span class="input-group-btn">
+                        <button type="button" class="find btn btn-default">
+                            <a class="notZelda" href="resources.html">Find Resource</a>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <br>
+        <!-- <div id="map"></div> -->
+        <hr>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <h3 class="text-center">About LAPD Fred</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan ipsum ac augue malesuada vulputate.
+                    Pellentesque vel faucibus ex, quis maximus lacus. Nam luctus, urna nec pharetra condimentum, leo justo
+                    vestibulum metus, ut tempor felis est non diam.</p>
+                <p>Nullam blandit varius dignissim. Proin varius mauris in mollis facilisis. Suspendisse lectus libero, facilisis
+                    eu ligula ac, fermentum consequat felis. Vestibulum et neque sed massa accumsan mattis. Fusce ornare
+                    luctus magna. Mauris viverra elit non rutrum aliquam. Morbi sed sagittis libero, non tincidunt dui. Vestibulum
+                    auctor elementum nisi vel fringilla. Praesent quis egestas lorem, in vestibulum ligula. Nunc placerat
+                    tellus ex, at imperdiet odio euismod a. Aenean eget aliquam nisl, id placerat nulla. Suspendisse at dapibus
+                    est, et ullamcorper diam. Nam quam ex, fermentum eu molestie eu, sollicitudin sit amet erat. Integer
+                    vehicula in tortor a feugiat. Curabitur id ullamcorper lacus. Sed ac dolor nunc. In sed nibh et metus
+                    luctus ultricies eu a enim. Nunc lacinia finibus eros in placerat.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <img src="http://sweettutos.com/wp-content/uploads/2015/12/placeholder.png" width="150px" height="150px">
+                <p align="center">
+                    <small>Youth Policy Institute</small>
+                </p>
+            </div>
+            <div class="col-md-4">
+                <img src="http://sweettutos.com/wp-content/uploads/2015/12/placeholder.png" width="150px" height="150px">
+                <p align="center">
+                    <small>Los Angeles Police Department</small>
+                </p>
+            </div>
+            <div class="col-md-4">
+                <img src="http://sweettutos.com/wp-content/uploads/2015/12/placeholder.png" width="150px" height="150px">
+                <p align="center">
+                    <small>Chaplin</small>
+                </p>
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col-md-12">
+                <p class="text-center">Powered By</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <img class="techhire" src="Logo-TechHire.jpg" width="25%">
+            </div>
+        </div>
+        <br>
+    </div>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNwXQefIZFHE25kjvwHx2ilGuiKt8paQA&callback=initMap">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="displayMaps.js"></script>
+    <script type="text/javascript">
+        function startUp() {
+            $(".dropdown-menu li").on("click", selectResource);
+            //$(".find").on("click", getResource);
+            // $(window).load(initMap());
+        }
+
+        var selectResource = function (item) {
+            item = this.innerText;
+            console.log(item);
+            $(".resourceSearch").val(item);
+        }
+
+        $(document).ready(startUp);
+    </script>
+</body>
+
+</html>
