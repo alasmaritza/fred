@@ -21,6 +21,11 @@ p small {
     text-align: center;
 }
 
+button.find {
+    border: solid 1px;
+    border-color:lightgrey;
+}
+
 @media (min-width: 576px) { 
     img.techhire {
         width:"100%";

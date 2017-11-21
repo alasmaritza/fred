@@ -44,18 +44,18 @@
         crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="displayMaps.js"></script>
-    <script type="text/javascript">
-        function startUp() {
-            $(window).load(initMap());
-        }
+    <script src="fred.json"></script>
+    <script src="fredCalls.js"></script>
+    <script src="fred.js"></script>
+    <!-- <script type="text/javascript">
+    function startUp() {
+        console.log("hello.");
+        var rec = localStorage.getItem("rec");
+    console.log(rec);
+    }
 
-        var selectResource = function (item) {
-            item = this.innerText;
-            console.log(item);
-            $(".resourceSearch").val(item);
-        }
-        $(document).ready(startUp);
-    </script>
+    $(document).ready(startUp);
+    </script> -->
 </body>
 
 </html>
