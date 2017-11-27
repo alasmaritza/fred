@@ -6,7 +6,7 @@ function initMap() {
             lat: 34.0516728,
             lng: -118.2783919
         },
-        zoom: 13,
+        zoom: 14,
         styles: [{
                 elementType: 'geometry',
                 stylers: [{
@@ -153,7 +153,7 @@ function initMap() {
                 icon: image,
                 animation: google.maps.Animation.DROP
             });
-
+            markers.push(marker)
             map.panTo(pos);
             map.setCenter(pos);
         }, function () {

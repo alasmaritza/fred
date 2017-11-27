@@ -1,7 +1,5 @@
-var res;
-var list;
-var address;
-var myRes = "";
+var res, list, address;
+var markers = [];
 
 function startUp() {
     $(".dropdown-menu li").on("click", selectResource);
@@ -22,12 +20,12 @@ var getResource = function () {
     }, 2000);
 }
 
-var cloneResource = function() {
+var cloneResource = function () {
     return $($("#clonedResource").html()).clone();
 }
 
 var onSuccess = function (data) {
-    for (var i = 0; i < data.length; i ++) {
+    for (var i = 0; i < data.length; i++) {
         if (res == data[i].Resource) {
             list = data[i]
             var collRes = {};
@@ -45,7 +43,7 @@ var onSuccess = function (data) {
     //var newList = list;  
 }
 
-var setResource = function(collRes) {
+var setResource = function (collRes) {
     var setNewResource = cloneResource();
     $(".orgTitle", setNewResource).html(collRes.organization);
     $(".orgArea", setNewResource).html(collRes.area);
@@ -62,7 +60,7 @@ var onAddress = function (results) {
         scaledSize: new google.maps.Size(28, 40),
     };
     if (result && results.status == "OK") {
-        for (var i = 0; i < result.length; i ++) {
+        for (var i = 0; i < result.length; i++) {
             var info = result[i].formatted_address;
             address = result[i].geometry.location;
             marker = new google.maps.Marker({
@@ -73,14 +71,28 @@ var onAddress = function (results) {
             });
 
             marker.addListener("click", function () {
+                infoWindow.setContent(info);
                 infoWindow.open(map, this);
-            })
-            infoWindow.setContent(info);
+            });
+
+            markers.push(marker);
         }
+
+        var bounds = new google.maps.LatLngBounds(null);
+        for (var i = 0; i < markers.length; i++) {
+            bounds.extend(markers[i].getPosition());
+        }
+        map.fitBounds(bounds)
+        google.maps.event.addListener(map, 'idle', function(event) {
+            var cnt = map.getCenter();
+            cnt.e+=0.000001;
+            map.panTo(cnt);
+            cnt.e-=0.000001;
+            map.panTo(cnt);
+        });
     } else {
         onError(status);
     }
-
 }
 
 var onError = function (error) {
