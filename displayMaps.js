@@ -143,8 +143,8 @@ function initMap() {
                 lng: position.coords.longitude
             };
             var image = {
-                url: "http://www.myiconfinder.com/uploads/iconsets/256-256-a5485b563efc4511e0cd8bd04ad0fe9e.png",
-                scaledSize: new google.maps.Size(32, 32),
+                url: "yellow-marker.png",
+                scaledSize: new google.maps.Size(28, 40),
             }
 
             marker = new google.maps.Marker({

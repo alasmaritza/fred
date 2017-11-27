@@ -56,7 +56,7 @@ var setResource = function (collRes) {
 var onAddress = function (results) {
     var result = results.results
     var image = {
-        url: "http://www.clker.com/cliparts/y/b/j/m/C/x/map-marker-md.png",
+        url: "map-marker-md.png",
         scaledSize: new google.maps.Size(28, 40),
     };
     if (result && results.status == "OK") {
