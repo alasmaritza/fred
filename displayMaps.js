@@ -1,4 +1,4 @@
-var map, infoWindow;
+var map, infoWindow, marker;
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
@@ -147,19 +147,14 @@ function initMap() {
                 scaledSize: new google.maps.Size(32, 32),
             }
 
-            var marker = new google.maps.Marker({
+            marker = new google.maps.Marker({
                 position: pos,
                 map: map,
-                icon: image
+                icon: image,
+                animation: google.maps.Animation.DROP
             });
 
-            // marker.addListener("click", function () {
-            //  infoWindow.open(map);
-            // })
-
-            infoWindow.setPosition(pos);
-            // infoWindow.setContent('Your Location');
-            // infoWindow.open(marker);
+            map.panTo(pos);
             map.setCenter(pos);
         }, function () {
             handleLocationError(true, infoWindow, map.getCenter());

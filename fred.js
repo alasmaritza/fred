@@ -1,6 +1,8 @@
-var rec;
+var res;
 var list;
-var myRec;
+var address;
+var myRes = "";
+
 function startUp() {
     $(".dropdown-menu li").on("click", selectResource);
     $(".find").on("click", getResource);
@@ -8,28 +10,77 @@ function startUp() {
 
 var selectResource = function (item) {
     item = this.innerText;
-    rec = item;
+    res = item;
     $(".resourceSearch").val(item);
 }
 
 var getResource = function () {
     getCall(onSuccess, onError);
-    initMap();
-    $("#map").css('display', 'block');
+    //$("#map").css('display', 'block');
     $('html, body').animate({
         scrollTop: $("#map").offset().top
     }, 2000);
 }
 
+var cloneResource = function() {
+    return $($("#clonedResource").html()).clone();
+}
+
 var onSuccess = function (data) {
-    for (var i = 0; i < data.length; i++) {
-        if (rec == data[i].Resource) {
-            list = data[i];
-            console.log(list);
+    for (var i = 0; i < data.length; i ++) {
+        if (res == data[i].Resource) {
+            list = data[i]
+            var collRes = {};
+            collRes.organization = list.Organization;
+            collRes.area = list.Area;
+            collRes.phone = list.Phone;
+            collRes.add = list.Address;
+            setResource(collRes);
+            if (list.Address) {
+                addressGet(list.Address, onAddress, onError);
+            }
         }
     }
-     //$(location).attr('href', 'resources.html');
+    //$(location).attr('href', 'resources.html');
     //var newList = list;  
+}
+
+var setResource = function(collRes) {
+    var setNewResource = cloneResource();
+    $(".orgTitle", setNewResource).html(collRes.organization);
+    $(".orgArea", setNewResource).html(collRes.area);
+    $("#orgPhone", setNewResource).html(collRes.phone);
+    $("#orgAdd", setNewResource).html(collRes.add);
+    $(".resources").append(setNewResource);
+}
+
+
+var onAddress = function (results) {
+    var result = results.results
+    var image = {
+        url: "http://www.clker.com/cliparts/y/b/j/m/C/x/map-marker-md.png",
+        scaledSize: new google.maps.Size(28, 40),
+    };
+    if (result && results.status == "OK") {
+        for (var i = 0; i < result.length; i ++) {
+            var info = result[i].formatted_address;
+            address = result[i].geometry.location;
+            marker = new google.maps.Marker({
+                position: address,
+                map: map,
+                icon: image,
+                animation: google.maps.Animation.DROP
+            });
+
+            marker.addListener("click", function () {
+                infoWindow.open(map, this);
+            })
+            infoWindow.setContent(info);
+        }
+    } else {
+        onError(status);
+    }
+
 }
 
 var onError = function (error) {
