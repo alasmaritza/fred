@@ -26,6 +26,14 @@ button.find {
     border-color:lightgrey;
 }
 
+.cloneRes {
+    margin:15px;
+}
+
+.cloneRes.homeless {
+    border-top:3px solid #208082;
+}
+
 @media (min-width: 576px) { 
     img.techhire {
         width:"100%";

@@ -98,5 +98,5 @@ var onAddress = function (results) {
 var onError = function (error) {
     console.log(error);
 }
-
+    
 $(document).ready(startUp);
