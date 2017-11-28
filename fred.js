@@ -33,11 +33,16 @@ var onSuccess = function (data) {
             collRes.area = list.Area;
             collRes.phone = list.Phone;
             collRes.add = list.Address;
+            collRes.res = list.Resource;
             setResource(collRes);
             if (list.Address) {
                 addressGet(list.Address, onAddress, onError);
             }
         }
+
+        if (list.Resource == 'Homeless') {
+            $(".cloneRes").addClass("homeless");
+        }  
     }
     //$(location).attr('href', 'resources.html');
     //var newList = list;  
@@ -49,6 +54,7 @@ var setResource = function (collRes) {
     $(".orgArea", setNewResource).html(collRes.area);
     $("#orgPhone", setNewResource).html(collRes.phone);
     $("#orgAdd", setNewResource).html(collRes.add);
+    $("#orgRes", setNewResource).html(collRes.res);
     $(".resources").append(setNewResource);
 }
 

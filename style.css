@@ -31,7 +31,8 @@ button.find {
 }
 
 .cloneRes.homeless {
-    border-top:3px solid #208082;
+    border-top:3px solid rgb(32, 128, 130);
+    background-color:rgba(32, 128, 130,0.2);
 }
 
 @media (min-width: 576px) { 
