@@ -1,4 +1,4 @@
-var res, list, address;
+var res, list, address, newClass;
 var markers = [];
 
 function startUp() {
@@ -21,7 +21,8 @@ var getResource = function () {
 }
 
 var cloneResource = function () {
-    return $($("#clonedResource").html()).clone();
+    newClass = res.toLowerCase().replace(/\s+/g, '');
+    return $($("#clonedResource").html()).clone().addClass(newClass);
 }
 
 var onSuccess = function (data) {
@@ -39,10 +40,6 @@ var onSuccess = function (data) {
                 addressGet(list.Address, onAddress, onError);
             }
         }
-
-        if (list.Resource == 'Homeless') {
-            $(".cloneRes").addClass("homeless");
-        }  
     }
     //$(location).attr('href', 'resources.html');
     //var newList = list;  
@@ -54,16 +51,27 @@ var setResource = function (collRes) {
     $(".orgArea", setNewResource).html(collRes.area);
     $("#orgPhone", setNewResource).html(collRes.phone);
     $("#orgAdd", setNewResource).html(collRes.add);
-    $("#orgRes", setNewResource).html(collRes.res);
+    //$("#orgRes", setNewResource).html(collRes.res);
     $(".resources").append(setNewResource);
 }
 
 
 var onAddress = function (results) {
     var result = results.results
-    var image = {
-        url: "map-marker-md.png",
-        scaledSize: new google.maps.Size(28, 40),
+    var icons = {
+        homeless: {
+            icon: "green-marker.png"
+        },
+        aplaceofworship: {
+            icon: "red-marker.png"
+        },
+        clergycouncil: {
+            icon: "purple-marker.png"
+        },
+        lapdvalleybureaucommunitypolicestations: {
+            icon: "orange-marker.png"
+        }
+        
     };
     if (result && results.status == "OK") {
         for (var i = 0; i < result.length; i++) {
@@ -72,7 +80,7 @@ var onAddress = function (results) {
             marker = new google.maps.Marker({
                 position: address,
                 map: map,
-                icon: image,
+                icon: icons[newClass].icon,
                 animation: google.maps.Animation.DROP
             });
 
@@ -89,11 +97,11 @@ var onAddress = function (results) {
             bounds.extend(markers[i].getPosition());
         }
         map.fitBounds(bounds)
-        google.maps.event.addListener(map, 'idle', function(event) {
+        google.maps.event.addListener(map, 'idle', function (event) {
             var cnt = map.getCenter();
-            cnt.e+=0.000001;
+            cnt.e += 0.000001;
             map.panTo(cnt);
-            cnt.e-=0.000001;
+            cnt.e -= 0.000001;
             map.panTo(cnt);
         });
     } else {
@@ -104,5 +112,5 @@ var onAddress = function (results) {
 var onError = function (error) {
     console.log(error);
 }
-    
+
 $(document).ready(startUp);
