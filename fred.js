@@ -70,6 +70,9 @@ var onAddress = function (results) {
         },
         lapdvalleybureaucommunitypolicestations: {
             icon: "orange-marker.png"
+        }, 
+        women: {
+            icon: "fuscia-marker.png"
         }
         
     };

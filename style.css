@@ -1,3 +1,15 @@
+body {
+    background-image: url('dark_geometric.png');
+}
+
+.container {
+    color:white;
+}
+
+#map div {
+    color:black;
+}
+
 img {
     display:block;
     margin:auto;
@@ -48,6 +60,11 @@ button.find {
 .cloneRes.lapdvalleybureaucommunitypolicestations {
     border-top:3px solid rgb(255, 185, 64);
     background-color:rgba(255, 185, 64,0.2);
+}
+
+.cloneRes.women {
+    border-top:3px solid rgb(193, 9, 107);
+    background-color: rgba(193,9,107,0.2);
 }
 
 @media (min-width: 576px) { 
