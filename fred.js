@@ -13,11 +13,20 @@ var selectResource = function (item) {
 }
 
 var getResource = function () {
-    getCall(onSuccess, onError);
-    //$("#map").css('display', 'block');
-    $('html, body').animate({
-        scrollTop: $("#map").offset().top
-    }, 2000);
+   // $(".find").addClass(res);
+    if ($(".find").hasClass(res)) {
+        $('html, body').animate({
+            scrollTop: $("#map").offset().top
+        }, 2000);
+    } else {
+        $(".find").addClass(res);
+        getCall(onSuccess, onError);
+        //$("#map").css('display', 'block');
+        $('html, body').animate({
+            scrollTop: $("#map").offset().top
+        }, 2000);
+    }
+    
 }
 
 var cloneResource = function () {
@@ -94,9 +103,9 @@ var onAddress = function (results) {
 
             markers.push(marker);
         }
-
+        //need to loop through all markers and find closest markers to my position (pos)
         var bounds = new google.maps.LatLngBounds(null);
-        for (var i = 0; i < 2; i++) {
+        for (var i =0; i <= 1; i++) {
             bounds.extend(markers[i].getPosition());
         }
         map.fitBounds(bounds);
