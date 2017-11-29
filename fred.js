@@ -2,7 +2,7 @@ var res, list, address, newClass;
 var markers = [];
 
 function startUp() {
-    initMap();
+   // initMap();
     $(".dropdown-menu li").on("click", selectResource);
     $(".find").on("click", getResource);
 }
