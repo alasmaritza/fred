@@ -96,10 +96,11 @@ var onAddress = function (results) {
         }
 
         var bounds = new google.maps.LatLngBounds(null);
-        for (var i = 0; i < markers.length; i++) {
+        for (var i = 0; i < 2; i++) {
             bounds.extend(markers[i].getPosition());
         }
-        map.fitBounds(bounds)
+        map.fitBounds(bounds);
+        
         google.maps.event.addListener(map, 'idle', function (event) {
             var cnt = map.getCenter();
             cnt.e += 0.000001;
@@ -110,6 +111,7 @@ var onAddress = function (results) {
     } else {
         onError(status);
     }
+    markers.splice(1);
 }
 
 var onError = function (error) {
