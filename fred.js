@@ -2,6 +2,7 @@ var res, list, address, newClass;
 var markers = [];
 
 function startUp() {
+    initMap();
     $(".dropdown-menu li").on("click", selectResource);
     $(".find").on("click", getResource);
 }
@@ -13,7 +14,6 @@ var selectResource = function (item) {
 }
 
 var getResource = function () {
-   // $(".find").addClass(res);
     if ($(".find").hasClass(res)) {
         $('html, body').animate({
             scrollTop: $("#map").offset().top
@@ -21,7 +21,6 @@ var getResource = function () {
     } else {
         $(".find").addClass(res);
         getCall(onSuccess, onError);
-        //$("#map").css('display', 'block');
         $('html, body').animate({
             scrollTop: $("#map").offset().top
         }, 2000);
@@ -60,7 +59,6 @@ var setResource = function (collRes) {
     $(".orgArea", setNewResource).html(collRes.area);
     $("#orgPhone", setNewResource).html(collRes.phone);
     $("#orgAdd", setNewResource).html(collRes.add);
-    //$("#orgRes", setNewResource).html(collRes.res);
     $(".resources").append(setNewResource);
 }
 
