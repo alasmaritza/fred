@@ -64,6 +64,7 @@ var setResource = function (collRes) {
     $(".orgTitle", setNewResource).html(collRes.organization);
     $(".orgArea", setNewResource).html(collRes.area);
     $("#orgPhone", setNewResource).html(collRes.phone);
+    $(".orgPhone", setNewResource).attr('href', "tel:" + collRes.phone);
     $("#orgAdd", setNewResource).html(collRes.add);
     $(".resources").prepend(setNewResource);
 }
@@ -109,7 +110,7 @@ var onAddress = function (results) {
         }
         //need to loop through all markers and find closest markers to my position (pos)
         var bounds = new google.maps.LatLngBounds(null);
-        for (var i = 0; i <= 1; i++) {
+        for (var i = 0; i < 2; i++) {
             bounds.extend(markers[i].getPosition());
         }
         

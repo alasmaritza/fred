@@ -18,6 +18,7 @@ img {
 
 img.techhire {
     padding:0px;
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
 .dropdown-menu li:hover {
@@ -71,14 +72,17 @@ button.find {
     display:none;
 }
 
+a.orgPhone, a.orgPhone:hover {
+    color:white;
+
+}
+
 @media (min-width: 576px) { 
-    img.techhire {
-        width:"100%";
-    }
+
  }
 
  @media (min-width: 768px) {
-     img.techhire {
-         width:"25%";
-     }
+    img.techhire {
+        width: "400px";
+    }
  }
