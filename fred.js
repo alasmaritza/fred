@@ -1,4 +1,3 @@
-var mapsKey = config.MAPS_API_KEY;
 var res, list, address, newClass;
 var markers = [];
 
