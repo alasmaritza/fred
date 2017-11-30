@@ -36,18 +36,6 @@
     },
     {
         "Resource": "Homeless",
-        "Area": null,
-        "Organization": "T.E.A.M Housing",
-        "Contact": null,
-        "Address": "102 N Pointsettia Ave Suite 206 Compton , CA 90221",
-        "Phone": "(310) 631-9516",
-        "Email": null,
-        "Website": "www.teamhousing.org",
-        "Notes": null,
-        "Hours": null
-    },
-    {
-        "Resource": "Homeless",
         "Area": "Hollywood Area",
         "Organization": "Los Angeles Youth Network",
         "Contact": null,
@@ -55,6 +43,30 @@
         "Phone": "(323) 957-7364",
         "Email": null,
         "Website": "www.layn.org",
+        "Notes": null,
+        "Hours": null
+    },
+    {
+        "Resource": "Homeless",
+        "Area": "West Los Angeles Area",
+        "Organization": "New Directions Oasis for Veteran Women",
+        "Contact": null,
+        "Address": "11303 Wilshire Blvd., VA Bldg 116 Los Angeles, CA 90073",
+        "Phone": "(310) 914-5495",
+        "Email": null,
+        "Website": "www.ndvets.org",
+        "Notes": null,
+        "Hours": null
+    },
+    {
+        "Resource": "Homeless",
+        "Area": null,
+        "Organization": "T.E.A.M Housing",
+        "Contact": null,
+        "Address": "102 N Pointsettia Ave Suite 206 Compton , CA 90221",
+        "Phone": "(310) 631-9516",
+        "Email": null,
+        "Website": "www.teamhousing.org",
         "Notes": null,
         "Hours": null
     },
@@ -141,18 +153,6 @@
         "Website": null,
         "Notes": null,
         "Hours": "Mon - Fri 12PM - 4PM, Sat 11AM - 5PM"
-    },
-    {
-        "Resource": "Homeless",
-        "Area": "West Los Angeles Area",
-        "Organization": "New Directions Oasis for Veteran Women",
-        "Contact": null,
-        "Address": "11303 Wilshire Blvd., VA Bldg 116 Los Angeles, CA 90073",
-        "Phone": "(310) 914-5495",
-        "Email": null,
-        "Website": "www.ndvets.org",
-        "Notes": null,
-        "Hours": null
     },
     {
         "Resource": "Homeless",

@@ -1,10 +1,17 @@
+var mapsKey = config.MAPS_API_KEY;
 var res, list, address, newClass;
 var markers = [];
 
 function startUp() {
-   // initMap();
+    initMap();
     $(".dropdown-menu li").on("click", selectResource);
     $(".find").on("click", getResource);
+    $(".resources").on("click", ".title", displayDesc);
+}
+
+var displayDesc = function(descrip) {
+    descrip = this.offsetParent;
+    $(".description", descrip).toggleClass("desc");
 }
 
 var selectResource = function (item) {
@@ -59,7 +66,7 @@ var setResource = function (collRes) {
     $(".orgArea", setNewResource).html(collRes.area);
     $("#orgPhone", setNewResource).html(collRes.phone);
     $("#orgAdd", setNewResource).html(collRes.add);
-    $(".resources").append(setNewResource);
+    $(".resources").prepend(setNewResource);
 }
 
 
@@ -103,10 +110,10 @@ var onAddress = function (results) {
         }
         //need to loop through all markers and find closest markers to my position (pos)
         var bounds = new google.maps.LatLngBounds(null);
-        for (var i =0; i <= 1; i++) {
+        for (var i = 0; i <= 1; i++) {
             bounds.extend(markers[i].getPosition());
         }
-        map.fitBounds(bounds);
+        
         
         google.maps.event.addListener(map, 'idle', function (event) {
             var cnt = map.getCenter();
@@ -118,6 +125,7 @@ var onAddress = function (results) {
     } else {
         onError(status);
     }
+    map.fitBounds(bounds);
     markers.splice(1);
 }
 

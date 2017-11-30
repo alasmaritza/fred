@@ -67,6 +67,10 @@ button.find {
     background-color: rgba(193,9,107,0.2);
 }
 
+.desc {
+    display:none;
+}
+
 @media (min-width: 576px) { 
     img.techhire {
         width:"100%";
