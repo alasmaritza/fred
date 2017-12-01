@@ -2,15 +2,41 @@ var res, list, address, newClass;
 var markers = [];
 
 function startUp() {
+    $("#enterZip").on("keypress", setNewCenter);
     $(".dropdown-menu li").on("click", selectResource);
     $(".find").on("click", getResource);
+    // $(".dropdown-menu").keypress(getResource);
     $(".resources").on("click", ".title", displayDesc);
-    setTimeout(function() {
+    setTimeout(function () {
         initMap();
-      }, 1000);
+    }, 1000);
 }
 
-var displayDesc = function(descrip) {
+var setNewCenter = function (e, data) {
+    if (e.which == 13) {
+        e.preventDefault;
+        data = this.value;
+        console.log(data);
+        addressGet(data, onZipSuccess, onError);
+    }
+}
+
+var onZipSuccess = function (data) {
+    var center = data.results[0].geometry.location;
+    var image = {
+        url: "yellow-marker.png"
+    }
+    marker = new google.maps.Marker({
+        position: center,
+        map: map,
+        icon: image,
+        animation: google.maps.Animation.DROP
+    });
+    markers.push(marker);
+    map.setCenter(center);
+}
+
+var displayDesc = function (descrip) {
     descrip = this.offsetParent;
     $(".description", descrip).toggleClass("desc");
 }
@@ -33,7 +59,7 @@ var getResource = function () {
             scrollTop: $("#map").offset().top
         }, 2000);
     }
-    
+
 }
 
 var cloneResource = function () {
@@ -86,11 +112,11 @@ var onAddress = function (results) {
         },
         lapdvalleybureaucommunitypolicestations: {
             icon: "orange-marker.png"
-        }, 
+        },
         women: {
             icon: "fuscia-marker.png"
         }
-        
+
     };
     if (result && results.status == "OK") {
         for (var i = 0; i < result.length; i++) {
@@ -115,8 +141,8 @@ var onAddress = function (results) {
         for (var i = 0; i < 2; i++) {
             bounds.extend(markers[i].getPosition());
         }
-        
-        
+
+
         google.maps.event.addListener(map, 'idle', function (event) {
             var cnt = map.getCenter();
             cnt.e += 0.000001;

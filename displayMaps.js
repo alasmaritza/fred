@@ -1,10 +1,11 @@
 var map, infoWindow, marker;
 
 function initMap() {
+    var findMe = document.getElementById('findMe');
     map = new google.maps.Map(document.getElementById('map'), {
         center: {
-            lat: 34.0516728,
-            lng: -118.2783919
+            lat: 34.0434366,
+            lng: -118.2537329
         },
         zoom: 14,
         styles: [{
@@ -135,33 +136,35 @@ function initMap() {
 
     infoWindow = new google.maps.InfoWindow;
 
-    // Try HTML5 geolocation.
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-           var pos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
-            var image = {
-                url: "yellow-marker.png"
-            }
+    google.maps.event.addDomListener(findMe, 'click', function () {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                var pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                var image = {
+                    url: "yellow-marker.png"
+                }
 
-            marker = new google.maps.Marker({
-                position: pos,
-                map: map,
-                icon: image,
-                animation: google.maps.Animation.DROP
+                marker = new google.maps.Marker({
+                    position: pos,
+                    map: map,
+                    icon: image,
+                    animation: google.maps.Animation.DROP
+                });
+                markers.push(marker)
+                map.panTo(pos);
+                map.setCenter(pos);
+            }, function () {
+                handleLocationError(true, infoWindow, map.getCenter());
             });
-            markers.push(marker)
-            map.panTo(pos);
-            map.setCenter(pos);
-        }, function () {
-            handleLocationError(true, infoWindow, map.getCenter());
-        });
-    } else {
-        // Browser doesn't support Geolocation
-        handleLocationError(false, infoWindow, map.getCenter());
-    }
+        } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, infoWindow, map.getCenter());
+        }
+    
+    });
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -171,4 +174,3 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         'Error: Your browser doesn\'t support geolocation.');
     infoWindow.open(map);
 }
-//google.maps.event.addDomListener(window, 'load', initialize);
