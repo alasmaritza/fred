@@ -2,10 +2,12 @@ var res, list, address, newClass;
 var markers = [];
 
 function startUp() {
-    initMap();
     $(".dropdown-menu li").on("click", selectResource);
     $(".find").on("click", getResource);
     $(".resources").on("click", ".title", displayDesc);
+    setTimeout(function() {
+        initMap();
+      }, 1000);
 }
 
 var displayDesc = function(descrip) {
