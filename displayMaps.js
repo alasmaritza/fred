@@ -137,6 +137,10 @@ function initMap() {
     infoWindow = new google.maps.InfoWindow;
 
     google.maps.event.addDomListener(findMe, 'click', function () {
+        if (marker) {
+            marker.setMap(null);
+        }
+        markers.shift();
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function (position) {
                 var pos = {
@@ -163,7 +167,7 @@ function initMap() {
             // Browser doesn't support Geolocation
             handleLocationError(false, infoWindow, map.getCenter());
         }
-    
+
     });
 }
 

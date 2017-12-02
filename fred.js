@@ -5,7 +5,6 @@ function startUp() {
     $("#enterZip").on("keypress", setNewCenter);
     $(".dropdown-menu li").on("click", selectResource);
     $(".find").on("click", getResource);
-    // $(".dropdown-menu").keypress(getResource);
     $(".resources").on("click", ".title", displayDesc);
     setTimeout(function () {
         initMap();
@@ -13,10 +12,14 @@ function startUp() {
 }
 
 var setNewCenter = function (e, data) {
+    if (marker) {
+        marker.setMap(null);
+    }
+    markers.shift();
     if (e.which == 13) {
         e.preventDefault;
         data = this.value;
-        console.log(data);
+        //console.log(data);
         addressGet(data, onZipSuccess, onError);
     }
 }
@@ -136,7 +139,7 @@ var onAddress = function (results) {
 
             markers.push(marker);
         }
-        //need to loop through all markers and find closest markers to my position (pos)
+        //need to loop through all markers and find closest markers to my position or entered zip
         var bounds = new google.maps.LatLngBounds(null);
         for (var i = 0; i < 2; i++) {
             bounds.extend(markers[i].getPosition());
