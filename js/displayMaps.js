@@ -148,7 +148,7 @@ function initMap() {
                     lng: position.coords.longitude
                 };
                 var image = {
-                    url: "yellow-marker.png"
+                    url: "img/yellow-marker.png"
                 }
 
                 marker = new google.maps.Marker({

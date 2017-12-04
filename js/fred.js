@@ -12,7 +12,7 @@ function startUp() {
 }
 
 var setNewCenter = function (e, data) {
-    if (marker) {
+    if (marker && e.which == 13) {
         marker.setMap(null);
     }
     markers.shift();
@@ -27,7 +27,7 @@ var setNewCenter = function (e, data) {
 var onZipSuccess = function (data) {
     var center = data.results[0].geometry.location;
     var image = {
-        url: "yellow-marker.png"
+        url: "img/yellow-marker.png"
     }
     marker = new google.maps.Marker({
         position: center,
@@ -105,19 +105,19 @@ var onAddress = function (results) {
     var result = results.results
     var icons = {
         homeless: {
-            icon: "green-marker.png"
+            icon: "img/green-marker.png"
         },
         aplaceofworship: {
-            icon: "red-marker.png"
+            icon: "img/red-marker.png"
         },
         clergycouncil: {
-            icon: "purple-marker.png"
+            icon: "img/purple-marker.png"
         },
         lapdvalleybureaucommunitypolicestations: {
-            icon: "orange-marker.png"
+            icon: "img/orange-marker.png"
         },
         women: {
-            icon: "fuscia-marker.png"
+            icon: "img/fuscia-marker.png"
         }
 
     };
