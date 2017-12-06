@@ -12,7 +12,7 @@ var getCall = function(onSuccess, onError) {
 }
 
 var addressGet = function (address, onSuccess, onError) {
-    var url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=AIzaSyDNwXQefIZFHE25kjvwHx2ilGuiKt8paQA";
+    var url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "+CA&key=AIzaSyDNwXQefIZFHE25kjvwHx2ilGuiKt8paQA";
     var settings = {
         cache: false,
         contentType: "application/x-www-form-urlencoded; charset=UTF-8",

@@ -34,14 +34,18 @@ img.techhire {
     text-decoration: none;
 }
 
+.btn-info {
+    border-color: #17a2b8;
+}
+
 p small {
     text-align: center;
 }
 
-button.find {
+/* button.find {
     border: solid 1px;
     border-color:lightgrey;
-}
+} */
 
 .cloneRes {
     margin:15px;
