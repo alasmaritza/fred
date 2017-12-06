@@ -80,7 +80,7 @@ p small {
     display:none;
 }
 
-a.orgPhone, a.orgPhone:hover {
+a.orgPhone, a.orgPhone:hover, a.orgSite, a.orgSite:hover {
     color:white;
 
 }

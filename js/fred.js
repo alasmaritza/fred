@@ -80,6 +80,7 @@ var onSuccess = function (data) {
             collRes.phone = list.Phone;
             collRes.add = list.Address;
             collRes.res = list.Resource;
+            collRes.site = list.Website;
             setResource(collRes);
             if (list.Address) {
                 addressGet(list.Address, onAddress, onError);
@@ -96,6 +97,8 @@ var setResource = function (collRes) {
     $(".orgArea", setNewResource).html(collRes.area);
     $("#orgPhone", setNewResource).html(collRes.phone);
     $(".orgPhone", setNewResource).attr('href', "tel:" + collRes.phone);
+    $("#orgSite", setNewResource).html(collRes.site);
+    $(".orgSite", setNewResource).attr('href', collRes.site);
     $("#orgAdd", setNewResource).html(collRes.add);
     $(".resources").prepend(setNewResource);
 }

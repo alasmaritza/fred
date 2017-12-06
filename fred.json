@@ -6,7 +6,7 @@
         "Address": "19855 Sherman Way, Winnetka, CA 91306",
         "Phone": "(818)  341-6634 ext: 1015",
         "Email": "workofhart@yahoo.com",
-        "Website": "www.sjwchurch.com",
+        "Website": "http://www.sjwchurch.com",
         "Notes": null,
         "Hours": null
     },
@@ -42,7 +42,7 @@
         "Address": "1754 Taft Avenue Los Angeles, CA 90028",
         "Phone": "(323) 957-7364",
         "Email": null,
-        "Website": "www.layn.org",
+        "Website": "http://www.layn.org",
         "Notes": null,
         "Hours": null
     },
@@ -54,7 +54,7 @@
         "Address": "11303 Wilshire Blvd., VA Bldg 116 Los Angeles, CA 90073",
         "Phone": "(310) 914-5495",
         "Email": null,
-        "Website": "www.ndvets.org",
+        "Website": "http://www.ndvets.org",
         "Notes": null,
         "Hours": null
     },
@@ -66,7 +66,7 @@
         "Address": "102 N Pointsettia Ave Suite 206 Compton , CA 90221",
         "Phone": "(310) 631-9516",
         "Email": null,
-        "Website": "www.teamhousing.org",
+        "Website": "http://www.teamhousing.org",
         "Notes": null,
         "Hours": null
     },
@@ -90,7 +90,7 @@
         "Address": "401 E Ocean Blvd, Suite 202 Long Beach, CA 90802",
         "Phone": "(323) 231-1711",
         "Email": null,
-        "Website": "www.newimageshelter.org",
+        "Website": "http://www.newimageshelter.org",
         "Notes": null,
         "Hours": null
     },
@@ -114,7 +114,7 @@
         "Address": "1851 Tyburn Street, Glendale, CA 91204",
         "Phone": "(818) 246- 7900",
         "Email": "info@ascenciaca.org",
-        "Website": "www.ascenciaca.org",
+        "Website": "http://www.ascenciaca.org",
         "Notes": null,
         "Hours": "Mon-Wed and Fri 7AM - 4PM, Th 7AM - 2PM"
     },
@@ -174,7 +174,7 @@
         "Address": "1345 Turnbull Canyon Rd. Hacienda Heights, CA 91745",
         "Phone": "(626) 333-7204",
         "Email": null,
-        "Website": "esgvchomeless.org",
+        "Website": "http://esgvchomeless.org",
         "Notes": null,
         "Hours": null
     },
@@ -186,7 +186,7 @@
         "Address": "123 E. 14th St. Long Beach, CA 90813",
         "Phone": "(562) 591-1351",
         "Email": null,
-        "Website": "http://catholiccharitiesla.org/",
+        "Website": "http://catholiccharitiesla.org",
         "Notes": null,
         "Hours": null
     },
@@ -210,7 +210,7 @@
         "Address": "9556 Flower St.#8 Bellflower, CA 90706",
         "Phone": "(424) 205-0369",
         "Email": null,
-        "Website": "www.atthefountaintl.org",
+        "Website": "http://www.atthefountaintl.org",
         "Notes": null,
         "Hours": null
     },
@@ -222,7 +222,7 @@
         "Address": "3107 S. Grand Avenue Los Angeles, CA 90007",
         "Phone": "(213) 744-8186",
         "Email": null,
-        "Website": "www.salvationarmy-socal.org/southern-california/HopeHarbor",
+        "Website": "http://www.salvationarmy-socal.org/southern-california/HopeHarbor",
         "Notes": null,
         "Hours": null
     },
@@ -338,7 +338,19 @@
         "Address": "442 South San Pedro Street Los Angeles, CA 90013",
         "Phone": "(213) 680-0600",
         "Email": null,
-        "Website": "http://www.downtownwomenscenter.org/",
+        "Website": "http://www.downtownwomenscenter.org",
+        "Notes": null,
+        "Hours": null
+    },
+    {
+        "Resource": "Women",
+        "Area": "Wilshire Area",
+        "Organization": "National Council of Jewish Women Inc.",
+        "Contact": null,
+        "Address": "543 North Fairfax Avenue Los Angeles, CA 90036",
+        "Phone": "(323) 651-2930",
+        "Email": "Helpisonthewayla323@gmail.com",
+        "Website": "http://www.salvationarmy-socal.org/southern-california/HopeHarbor",
         "Notes": null,
         "Hours": null
     },
@@ -351,18 +363,6 @@
         "Phone": "(714) 891-8121",
         "Email": "admin@intervalhouse.org",
         "Website": "http://www.intervalhouse.org",
-        "Notes": null,
-        "Hours": null
-    },
-    {
-        "Resource": "Women",
-        "Area": "Wilshire Area",
-        "Organization": "National Council of Jewish Women Inc.",
-        "Contact": null,
-        "Address": "543 North Fairfax Avenue Los Angeles, CA 90036",
-        "Phone": "(323) 651-2930",
-        "Email": "Helpisonthewayla323@gmail.com",
-        "Website": "www.salvationarmy-socal.org/southern-california/HopeHarbor",
         "Notes": null,
         "Hours": null
     }
