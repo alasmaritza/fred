@@ -2,8 +2,9 @@ var res, list, address, newClass;
 var markers = [];
 
 function startUp() {
-    $("#enterZip").on("keypress", setNewCenter);
-    $(".dropdown-menu li").on("click", selectResource);
+    displayResources();
+    $("#enterZip").on("focusout", setNewCenter);
+    $(".dropdown-menu").on("click", "li", selectResource);
     $(".find").on("click", getResource);
     $(".resources").on("click", ".title", displayDesc);
     setTimeout(function () {
@@ -12,16 +13,16 @@ function startUp() {
 }
 
 var setNewCenter = function (e, data) {
-    if (marker && e.which == 13) {
+    if (marker) {
         marker.setMap(null);
     }
     markers.shift();
-    if (e.which == 13) {
-        e.preventDefault;
+   // if (e.which == 13) {
+     //   e.preventDefault;
         data = this.value;
         //console.log(data);
         addressGet(data, onZipSuccess, onError);
-    }
+ //   }
 }
 
 var onZipSuccess = function (data) {
@@ -39,15 +40,25 @@ var onZipSuccess = function (data) {
     map.setCenter(center);
 }
 
+var displayResources = function() {
+    getResourcesCall(onDisplaySuccess, onError);
+}
+
+var onDisplaySuccess = function(data) {
+    for (var i = 0; i < data.length; i ++) {
+        $("#resources-list").append("<li id='" + data[i].id + "'>" + data[i].name + "</li>");
+    }
+}
+
 var displayDesc = function (descrip) {
     descrip = this.offsetParent;
     $(".description", descrip).toggleClass("desc");
 }
 
-var selectResource = function (item) {
-    item = this.innerText;
+var selectResource = function (event) {
+    item = event.target.id;
     res = item;
-    $(".resourceSearch").val(item);
+    $(".resourceSearch").val(event.target.innerText);
 }
 
 var getResource = function () {
@@ -57,7 +68,7 @@ var getResource = function () {
         }, 2000);
     } else {
         $(".find").addClass(res);
-        getCall(onSuccess, onError);
+        getOrgsCall(item, onSuccess, onError);
         $('html, body').animate({
             scrollTop: $("#map").offset().top
         }, 2000);
@@ -71,22 +82,18 @@ var cloneResource = function () {
 }
 
 var onSuccess = function (data) {
-    for (var i = 0; i < data.length; i++) {
-        if (res == data[i].Resource) {
-            list = data[i]
+     for (var i = 0; i < data.length; i++) {
+            var orgs = data[i]
             var collRes = {};
-            collRes.organization = list.Organization;
-            collRes.area = list.Area;
-            collRes.phone = list.Phone;
-            collRes.add = list.Address;
-            collRes.res = list.Resource;
-            collRes.site = list.Website;
+            collRes.organization = orgs.name;
+            collRes.phone = orgs.phone;
+            collRes.add = orgs.address;
+            collRes.site = orgs.websiteURL;
             setResource(collRes);
-            if (list.Address) {
-                addressGet(list.Address, onAddress, onError);
+            if (orgs.address) {
+                addressGet(orgs.address, onAddress, onError);
             }
-        }
-    }
+     }
     //$(location).attr('href', 'resources.html');
     //var newList = list;  
 }
@@ -131,7 +138,7 @@ var onAddress = function (results) {
             marker = new google.maps.Marker({
                 position: address,
                 map: map,
-                icon: icons[newClass].icon,
+                //icon: icons[newClass].icon,
                 animation: google.maps.Animation.DROP
             });
 
