@@ -50,6 +50,9 @@ p small {
 .cloneRes {
     margin:15px;
 }
+.cloneRes:hover {
+    cursor: pointer;
+}
 
 .cloneRes.homeless {
     border-top:3px solid rgb(32, 128, 130);

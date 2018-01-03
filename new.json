@@ -1,0 +1,348 @@
+[
+    {
+    "id": "1",
+    "createdAt": 1513814749,
+    "name": "Long-Term Housing",
+    "locations": [
+    {
+    "id": "1",
+    "resourceId": "1",
+    "createdAt": 1513797555,
+    "name": "San Fernando Valley Rescue Mission",
+    "address": "8756 Canby Ave.",
+    "phone": "(818) 785-4476",
+    "websiteURL": "https://sfvrescuemission.org/",
+    "hours": "hours 1",
+    "notes": "notes 1",
+    "addressLine2": "Northridge, CA 91325"
+    },
+    {
+    "id": "2",
+    "resourceId": "1",
+    "createdAt": 1513797495,
+    "name": "Hope of the Valley Rescue Mission",
+    "address": "6425 Tyrone Ave,",
+    "phone": "(818) 804-5507",
+    "websiteURL": "http://www.hopeofthevalley.org/",
+    "hours": "hours 2",
+    "notes": "notes 2",
+    "addressLine2": "Van Nuys, CA 91401"
+    },
+    {
+    "id": "3",
+    "resourceId": "1",
+    "createdAt": 1513797996,
+    "name": "Children of the Night",
+    "address": "",
+    "phone": "(800) 551-1300",
+    "websiteURL": "https://www.childrenofthenight.org/",
+    "hours": "hours 3",
+    "notes": "notes 3"
+    }
+    ]
+    },
+    {
+    "id": "2",
+    "createdAt": 1513814689,
+    "name": "Expedited Homelessness",
+    "locations": [
+    {
+    "id": "4",
+    "resourceId": "2",
+    "createdAt": 1513798705,
+    "name": "LA Family Housing",
+    "address": "7843 Lankershim Blvd, North Hollywood, CA 91605",
+    "phone": "(818) 982-4091",
+    "websiteURL": "https://lafh.org",
+    "hours": "hours 4",
+    "notes": "notes 4"
+    },
+    {
+    "id": "5",
+    "resourceId": "2",
+    "createdAt": 1513798723,
+    "name": "Los Angeles Homeless Services Authority",
+    "address": "811 Wilshire Blvd, 6th Floor Los Angeles CA, 90017",
+    "phone": "(213) 683-3333",
+    "websiteURL": "https://www.lahsa.org",
+    "hours": "hours 5",
+    "notes": "notes 5"
+    }
+    ]
+    },
+    {
+    "id": "3",
+    "createdAt": 1513814629,
+    "name": "Rehabilitation",
+    "locations": [
+    {
+    "id": "6",
+    "resourceId": "3",
+    "createdAt": 1513798707,
+    "name": "Tarzana Treatment Center",
+    "address": "18646 Oxnard Street Tarzana, CA 91356",
+    "phone": "(818) 996-1051",
+    "websiteURL": "https://www.tarzanatc.org/",
+    "hours": "hours 6",
+    "notes": "notes 6"
+    }
+    ]
+    },
+    {
+    "id": "4",
+    "createdAt": 1513814569,
+    "name": "Aging",
+    "locations": [
+    {
+    "id": "7",
+    "resourceId": "4",
+    "createdAt": 1513798690,
+    "name": "Robert M Wilkinson Multipurpose Center",
+    "address": "8956 Vanalden Ave., Northridge, CA 91324",
+    "phone": "(818) 756-7741",
+    "websiteURL": "",
+    "hours": "hours 7",
+    "notes": "notes 7"
+    }
+    ]
+    },
+    {
+    "id": "5",
+    "createdAt": 1513814509,
+    "name": "Police Stations",
+    "locations": [
+    {
+    "id": "8",
+    "resourceId": "5",
+    "createdAt": 1513798695,
+    "name": "LAUSD Police",
+    "address": "125 North Beaudry Avenue Los Angeles, CA 90012",
+    "phone": "(213) 625-6631",
+    "websiteURL": "",
+    "hours": "hours 8",
+    "notes": "notes 8"
+    },
+    {
+    "id": "9",
+    "resourceId": "5",
+    "createdAt": 1513798757,
+    "name": "LAPD Devonshire Division",
+    "address": "10250 Etiwanda Avenue Northridge, CA 91325",
+    "phone": "(818) 832-0633",
+    "websiteURL": "http://www.lapdonline.org/devonshire_community_police_station",
+    "hours": "hours 9",
+    "notes": "notes 9"
+    },
+    {
+    "id": "10",
+    "resourceId": "5",
+    "createdAt": 1513798711,
+    "name": "LAPD Topanga Division",
+    "address": "21501 Schoenborn St. Canoga Park, CA 91304",
+    "phone": "(818) 756-4800",
+    "websiteURL": "http://www.lapdonline.org/topanga_community_police_station",
+    "hours": "hours 10",
+    "notes": "notes 10"
+    },
+    {
+    "id": "11",
+    "resourceId": "5",
+    "createdAt": 1513798672,
+    "name": "LAPD Mission Division",
+    "address": "11121 N. Sepulveda Blvd Mission Hills, CA 91345",
+    "phone": "(818) 838-9800",
+    "websiteURL": "http://www.lapdonline.org/mission_community_police_station",
+    "hours": "hours 11",
+    "notes": "notes 11"
+    },
+    {
+    "id": "12",
+    "resourceId": "5",
+    "createdAt": 1513798621,
+    "name": "LAPD West Valley Division",
+    "address": "19020 Vanowen Street Reseda, CA 91335",
+    "phone": "(818) 374-7611",
+    "websiteURL": "http://www.lapdonline.org/mission_community_police_station",
+    "hours": "hours 12",
+    "notes": "notes 12"
+    }
+    ]
+    },
+    {
+    "id": "6",
+    "createdAt": 1513814449,
+    "name": "Council Office",
+    "locations": [
+    {
+    "id": "13",
+    "resourceId": "6",
+    "createdAt": 1513798593,
+    "name": "Council District 12",
+    "address": "9207 Oakdale Ave., Suite 200 Chatsworth, CA 91311",
+    "phone": "(818) 882-1212",
+    "websiteURL": "http://www.cd12.org/",
+    "hours": "hours 13",
+    "notes": "notes 13"
+    }
+    ]
+    },
+    {
+    "id": "7",
+    "createdAt": 1513814389,
+    "name": "Food Banks",
+    "locations": [
+    {
+    "id": "14",
+    "resourceId": "7",
+    "createdAt": 1513798560,
+    "name": "West Valley Food Pantry",
+    "address": "5700 Rudnick Avenue Woodland Hills, CA 91367",
+    "phone": "(818) 346-5554",
+    "websiteURL": "http://www.westvalleyfoodpantry.org",
+    "hours": "hours 14",
+    "notes": "notes 14"
+    }
+    ]
+    },
+    {
+    "id": "8",
+    "createdAt": 1513814329,
+    "name": "Mental Health",
+    "locations": [
+    {
+    "id": "15",
+    "resourceId": "8",
+    "createdAt": 1513798546,
+    "name": "San Fernando Valley Community Health Center",
+    "address": "6305 Woodman Ave, Van Nuys, CA 91401",
+    "phone": "(818) 908-4999",
+    "websiteURL": "",
+    "hours": "hours 15",
+    "notes": "notes 15"
+    }
+    ]
+    },
+    {
+    "id": "9",
+    "createdAt": 1513814269,
+    "name": "Graffiti",
+    "locations": [
+    {
+    "id": "16",
+    "resourceId": "9",
+    "createdAt": 1513798516,
+    "name": "West Valley Alliance",
+    "address": "17436 Chatsworth St Granada Hills CA 91344",
+    "phone": "(818) 832-9999",
+    "websiteURL": "",
+    "hours": "hours 16",
+    "notes": "notes 16"
+    }
+    ]
+    },
+    {
+    "id": "10",
+    "createdAt": 1513814209,
+    "name": "City Services",
+    "locations": [
+    {
+    "id": "17",
+    "resourceId": "10",
+    "createdAt": 1513798478,
+    "name": "311",
+    "address": "",
+    "phone": "311",
+    "websiteURL": "https://www.lacity.org/311-services",
+    "hours": "hours 17",
+    "notes": "notes 17"
+    }
+    ]
+    },
+    {
+    "id": "11",
+    "createdAt": 1513814149,
+    "name": "Children Services",
+    "locations": [
+    {
+    "id": "18",
+    "resourceId": "11",
+    "createdAt": 1513798462,
+    "name": "LA County Child Support Services Van Nuys",
+    "address": "7555 Van Nuys Blvd. Van Nuys, CA 91405",
+    "phone": "(866) 901-3212",
+    "websiteURL": "",
+    "hours": "hours 18",
+    "notes": "notes 18"
+    },
+    {
+    "id": "19",
+    "resourceId": "11",
+    "createdAt": 1513798445,
+    "name": "Department of Children and Family Services Child Protection",
+    "address": "2525 Corporate Pl, Monterey Park, CA 91754",
+    "phone": "(800) 540-4000",
+    "websiteURL": "http://dcfs.lacounty.gov/contactus/childabuse.html",
+    "hours": "hours 19",
+    "notes": "notes 19"
+    }
+    ]
+    },
+    {
+    "id": "12",
+    "createdAt": 1513814089,
+    "name": "Animal Services",
+    "locations": [
+    {
+    "id": "20",
+    "resourceId": "12",
+    "createdAt": 1513798404,
+    "name": "East Valley Shelter",
+    "address": "14409 Vanowen St, Van Nuys, CA 91405",
+    "phone": "(818) 756-9323",
+    "websiteURL": "http://www.laanimalservices.com/",
+    "hours": "hours 20",
+    "notes": "notes 20"
+    },
+    {
+    "id": "23",
+    "resourceId": "12",
+    "createdAt": 1513882688,
+    "name": "West Valley Shelter",
+    "address": "20655 Plummer Street, Chatsworth, CA 91311",
+    "phone": "(818) 756-9325",
+    "websiteURL": "http://www.laanimalservices.com/",
+    "hours": "hours 23",
+    "notes": "notes 23"
+    }
+    ]
+    },
+    {
+    "id": "13",
+    "createdAt": 1513814029,
+    "name": "Family Support Services",
+    "locations": [
+    {
+    "id": "21",
+    "resourceId": "13",
+    "createdAt": 1513798359,
+    "name": "FISH of West Valley",
+    "address": "20440 Lassen Street Chatsworth, CA 91311",
+    "phone": "(818) 882-3474",
+    "websiteURL": "",
+    "hours": "hours 21",
+    "notes": "notes 21"
+    },
+    {
+    "id": "22",
+    "resourceId": "13",
+    "createdAt": 1513798320,
+    "name": "Rescue Mission Thrift Store",
+    "address": "13422 Saticoy St, North Hollywood, CA 91605",
+    "phone": "(818) 474-1291",
+    "websiteURL": "https://sfvrescuemission.org/thrift/",
+    "hours": "hours 22",
+    "notes": "notes 22"
+    }
+    ]
+    }
+    ]

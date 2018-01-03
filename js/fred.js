@@ -88,10 +88,11 @@ var onSuccess = function (data) {
             collRes.organization = orgs.name;
             collRes.phone = orgs.phone;
             collRes.add = orgs.address;
+            collRes.add2 = orgs.addressLine2;
             collRes.site = orgs.websiteURL;
             setResource(collRes);
             if (orgs.address) {
-                addressGet(orgs.address, onAddress, onError);
+                addressGet(orgs.address+orgs.addressLine2, onAddress, onError);
             }
      }
     //$(location).attr('href', 'resources.html');
@@ -107,6 +108,7 @@ var setResource = function (collRes) {
     $("#orgSite", setNewResource).html(collRes.site);
     $(".orgSite", setNewResource).attr('href', collRes.site);
     $("#orgAdd", setNewResource).html(collRes.add);
+    $("#orgAdd2", setNewResource).html(collRes.add2);
     $(".resources").prepend(setNewResource);
 }
 

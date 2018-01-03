@@ -39,15 +39,9 @@
                     <input type="text" class="form-control resourceSearch dropdown-toggle" placeholder="Find a Local Resource" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="true">
                     <ul id="resources-list" class="dropdown-menu col-md-10">
-                        <!-- <li>A Place of Worship</li>
-                        <li>Clergy Council</li>
-                        <li>Homeless</li>
-                        <li>LAPD Valley Bureau Community Police Stations</li>
-                        <li>Women</li> -->
                     </ul>
                     <span class="input-group-btn">
                         <button type="button" class="find btn btn-info">
-                            <!-- <a class="notZelda" href="resources.html">Find Resource</a> -->
                             Find Resource
                         </button>
                     </span>
@@ -113,16 +107,17 @@
     </div>
     <!--Resources Template-->
     <script type="text/template" id="clonedResource">
-        <div class="cloneRes col-md-3">
+        <div class="cloneRes homeless col-md-3">
             <div class="title">
                 <span>
                     <strong class="orgTitle"></strong>
-                </span> -
+                </span>
                 <small class="orgArea"></small>
             </div>
             <div class="desc description">
                 <div>Address:
-                    <span id="orgAdd"></span>
+                    <span id="orgAdd"></span><br>
+                    <span id="orgAdd2"></span>
                 </div>
                 <div>Phone:
                     <a href="" class="orgPhone"><span id="orgPhone"></span></a>
