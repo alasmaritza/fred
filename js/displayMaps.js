@@ -2,6 +2,7 @@ var map, infoWindow, marker;
 
 function initMap() {
     var findMe = document.getElementById('findMe');
+    var removeMe = document.getElementById('resourceSearch');
     map = new google.maps.Map(document.getElementById('map'), {
         center: {
             lat: 34.0434366,
@@ -136,6 +137,13 @@ function initMap() {
 
     infoWindow = new google.maps.InfoWindow;
 
+    google.maps.event.addDomListener(removeMe, 'focus', function() {
+        for(var i = 1; i < markers.length; i ++) {
+            markers[i].setMap(null);
+        }
+        
+    });
+
     google.maps.event.addDomListener(findMe, 'click', function () {
         if (marker) {
             marker.setMap(null);
@@ -169,6 +177,7 @@ function initMap() {
         }
 
     });
+
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
