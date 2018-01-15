@@ -1,4 +1,4 @@
-var map, infoWindow, marker;
+var map, marker;
 
 function initMap() {
     var findMe = document.getElementById('findMe');
@@ -135,7 +135,7 @@ function initMap() {
         ]
     });
 
-    infoWindow = new google.maps.InfoWindow;
+   var infoWindow = new google.maps.InfoWindow;
 
     google.maps.event.addDomListener(removeMe, 'focus', function() {
         for(var i = 1; i < markers.length; i ++) {

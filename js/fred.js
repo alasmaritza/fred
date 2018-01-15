@@ -1,6 +1,6 @@
-var res, list, address, newClass, orgs, infoWindow;
+var res, list, address, newClass;
+var infoContent = null;
 var markers = [];
-//var map, infoWindow, marker;
 
 function startUp() {
     displayResources();
@@ -73,7 +73,7 @@ var cloneResource = function () {
 
 var onSuccess = function (data) {
     for (var i = 0; i < data.length; i++) {
-        orgs = data[i]
+       var orgs = data[i];
         var collRes = {};
         collRes.organization = orgs.name;
         collRes.phone = orgs.phone;
@@ -83,7 +83,8 @@ var onSuccess = function (data) {
         setResource(collRes);
         if (orgs.address) {
             addressGet(orgs.address + orgs.addressLine2, onAddress, onError);
-        }
+            infoContent = '<span><strong>' + orgs.name + '</strong><br>' + orgs.address + '<br>' + orgs.addressLine2 + '</span>';
+        };
     }
 }
 
@@ -101,38 +102,19 @@ var setResource = function (collRes) {
 }
 
 var onAddress = function (results, status) {
-    //console.log(results.results[0].geometry);
-    var result = results.results
-    var icons = {
-        homeless: {
-            icon: "img/green-marker.png"
-        }
-    };
-
-     // if (result && results.status == "OK") {
+    var result = results.results;
     if ("OK" == google.maps.GeocoderStatus.OK) {
+        var geometry = result[0].geometry;
+        address = geometry.location;
+        marker = new google.maps.Marker({
+            position: address,
+            map: map,
+            animation: google.maps.Animation.DROP,
+            icon: "img/green-marker.png"
+        });
 
-            var geometry = result[0].geometry;
-            address = geometry.location;
-           marker = new google.maps.Marker({
-                position: address,
-                map: map,
-                //icon: icons[newClass].icon,
-                animation: google.maps.Animation.DROP
-                //title: orgs.name
-            });
+        markers.push(marker);
 
-            infoWindow = new google.maps.InfoWindow({
-                content: '<p>' + orgs.name + '<br>' + orgs.address + '<br>' + orgs.addressLine2 + '</p>'
-            });
-
-            marker.addListener("click", function () {               
-                infoWindow.open(map, this);
-            });
-
-            markers.push(marker);
-
-        //need to loop through all markers and find closest markers to my position or entered zip
         var bounds = new google.maps.LatLngBounds(null);
         for (var i = 0; i < markers.length; i++) {
             bounds.extend(markers[i].getPosition());
@@ -149,8 +131,19 @@ var onAddress = function (results, status) {
         onError(status);
     }
     map.fitBounds(bounds);
-   // return marker;
+    // var infoContent = '<span><strong>' + orgs.name + '</strong><br>' + orgs.address + '<br>' + orgs.addressLine2 + '</span>';
+    addInfoWindow(marker, infoContent);
 }
+
+var addInfoWindow = function(marker, info) {
+    var infowindow = new google.maps.InfoWindow({
+        content: info
+      });
+
+      marker.addListener('click', function() {
+        infowindow.open(map, this);
+      });
+ }
 
 var onError = function (error) {
     console.log(error);
