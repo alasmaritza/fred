@@ -20,7 +20,7 @@ var setNewCenter = function (e, data) {
     }
     markers.shift();
     data = this.value;
-    addressGet(data, onZipSuccess, onError);
+    findMe(data, onZipSuccess, onError);
 }
 
 var onZipSuccess = function (data) {
@@ -72,8 +72,9 @@ var cloneResource = function () {
 }
 
 var onSuccess = function (data) {
-    for (var i = 0; i < data.length; i++) {
+    for (let i = 0; i < data.length; i++) {
        var orgs = data[i];
+       console.log(orgs)
         var collRes = {};
         collRes.organization = orgs.name;
         collRes.phone = orgs.phone;
@@ -82,10 +83,11 @@ var onSuccess = function (data) {
         collRes.site = orgs.websiteURL;
         setResource(collRes);
         if (orgs.address) {
-            addressGet(orgs.address + orgs.addressLine2, onAddress, onError);
-            infoContent = '<span><strong>' + orgs.name + '</strong><br>' + orgs.address + '<br>' + orgs.addressLine2 + '</span>';
-        };
-    }
+            orgs.infoContent = '<span><strong>' + orgs.name + '</strong><br>' + orgs.address + '<br>' + orgs.addressLine2 + '</span>';
+            addressGet(orgs, onAddress, onError);
+        };   
+          
+    }  
 }
 
 var setResource = function (collRes) {
@@ -101,7 +103,7 @@ var setResource = function (collRes) {
     $(".resources").prepend(setNewResource);
 }
 
-var onAddress = function (results, status) {
+var onAddress = function (results, org, status) {
     var result = results.results;
     if ("OK" == google.maps.GeocoderStatus.OK) {
         var geometry = result[0].geometry;
@@ -112,7 +114,7 @@ var onAddress = function (results, status) {
             animation: google.maps.Animation.DROP,
             icon: "img/green-marker.png"
         });
-
+        marker.data = org;
         markers.push(marker);
 
         var bounds = new google.maps.LatLngBounds(null);
@@ -131,13 +133,13 @@ var onAddress = function (results, status) {
         onError(status);
     }
     map.fitBounds(bounds);
-    // var infoContent = '<span><strong>' + orgs.name + '</strong><br>' + orgs.address + '<br>' + orgs.addressLine2 + '</span>';
-    addInfoWindow(marker, infoContent);
+
+    addInfoWindow(marker);
 }
 
-var addInfoWindow = function(marker, info) {
+var addInfoWindow = function(marker) {
     var infowindow = new google.maps.InfoWindow({
-        content: info
+        content: marker.data.infoContent
       });
 
       marker.addListener('click', function() {
