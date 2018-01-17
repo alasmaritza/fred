@@ -36,18 +36,21 @@
         <div class="row">
             <div class="col-md-8 offset-md-2 col-sm-12">
                 <div class="input-group">
-                    <input type="text" class="form-control resourceSearch dropdown-toggle" placeholder="Find a Local Resource" data-toggle="dropdown"
+                    <input type="text" id="resourceSearch" class="form-control resourceSearch dropdown-toggle" placeholder="Find a Local Resource" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="true">
                     <ul id="resources-list" class="dropdown-menu col-md-10">
                     </ul>
                     <span class="input-group-btn">
-                        <button type="button" class="find btn btn-info">
+                        <button type="button" id="find" class="find btn btn-info">
                             Find Resource
                         </button>
                     </span>
                 </div>
             </div>
         </div>
+        <!-- <div class="row">
+            <button type="button" class="btn btn-danger" id="clearMarkers">Clear Markers</button>
+        </div> -->
         <br>
         <div id="map"></div>
         <br>
@@ -137,7 +140,6 @@
         crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/displayMaps.js"></script>
-    <script src="fred.json"></script>
     <script src="js/fredCalls.js"></script>
     <script src="js/fred.js"></script>
 </body>

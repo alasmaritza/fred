@@ -1,4 +1,5 @@
 var res, list, address, newClass;
+var infoContent = null;
 var markers = [];
 
 function startUp() {
@@ -6,6 +7,7 @@ function startUp() {
     $("#enterZip").on("focusout", setNewCenter);
     $(".dropdown-menu").on("click", "li", selectResource);
     $(".find").on("click", getResource);
+    $("#resourceSearch").on("focus", removeCards);
     $(".resources").on("click", ".title", displayDesc);
     setTimeout(function () {
         initMap();
@@ -17,12 +19,8 @@ var setNewCenter = function (e, data) {
         marker.setMap(null);
     }
     markers.shift();
-   // if (e.which == 13) {
-     //   e.preventDefault;
-        data = this.value;
-        //console.log(data);
-        addressGet(data, onZipSuccess, onError);
- //   }
+    data = this.value;
+    findMe(data, onZipSuccess, onError);
 }
 
 var onZipSuccess = function (data) {
@@ -40,12 +38,12 @@ var onZipSuccess = function (data) {
     map.setCenter(center);
 }
 
-var displayResources = function() {
+var displayResources = function () {
     getResourcesCall(onDisplaySuccess, onError);
 }
 
-var onDisplaySuccess = function(data) {
-    for (var i = 0; i < data.length; i ++) {
+var onDisplaySuccess = function (data) {
+    for (var i = 0; i < data.length; i++) {
         $("#resources-list").append("<li id='" + data[i].id + "'>" + data[i].name + "</li>");
     }
 }
@@ -62,18 +60,10 @@ var selectResource = function (event) {
 }
 
 var getResource = function () {
-    if ($(".find").hasClass(res)) {
-        $('html, body').animate({
-            scrollTop: $("#map").offset().top
-        }, 2000);
-    } else {
-        $(".find").addClass(res);
-        getOrgsCall(item, onSuccess, onError);
-        $('html, body').animate({
-            scrollTop: $("#map").offset().top
-        }, 2000);
-    }
-
+    getOrgsCall(item, onSuccess, onError);
+    $('html, body').animate({
+        scrollTop: $("#map").offset().top
+    }, 2000);
 }
 
 var cloneResource = function () {
@@ -82,21 +72,22 @@ var cloneResource = function () {
 }
 
 var onSuccess = function (data) {
-     for (var i = 0; i < data.length; i++) {
-            var orgs = data[i]
-            var collRes = {};
-            collRes.organization = orgs.name;
-            collRes.phone = orgs.phone;
-            collRes.add = orgs.address;
-            collRes.add2 = orgs.addressLine2;
-            collRes.site = orgs.websiteURL;
-            setResource(collRes);
-            if (orgs.address) {
-                addressGet(orgs.address+orgs.addressLine2, onAddress, onError);
-            }
-     }
-    //$(location).attr('href', 'resources.html');
-    //var newList = list;  
+    for (let i = 0; i < data.length; i++) {
+       var orgs = data[i];
+       console.log(orgs)
+        var collRes = {};
+        collRes.organization = orgs.name;
+        collRes.phone = orgs.phone;
+        collRes.add = orgs.address;
+        collRes.add2 = orgs.addressLine2;
+        collRes.site = orgs.websiteURL;
+        setResource(collRes);
+        if (orgs.address) {
+            orgs.infoContent = '<span><strong>' + orgs.name + '</strong><br>' + orgs.address + '<br>' + orgs.addressLine2 + '</span>';
+            addressGet(orgs, onAddress, onError);
+        };   
+          
+    }  
 }
 
 var setResource = function (collRes) {
@@ -112,52 +103,24 @@ var setResource = function (collRes) {
     $(".resources").prepend(setNewResource);
 }
 
-
-var onAddress = function (results) {
-    var result = results.results
-    var icons = {
-        homeless: {
+var onAddress = function (results, org, status) {
+    var result = results.results;
+    if ("OK" == google.maps.GeocoderStatus.OK) {
+        var geometry = result[0].geometry;
+        address = geometry.location;
+        marker = new google.maps.Marker({
+            position: address,
+            map: map,
+            animation: google.maps.Animation.DROP,
             icon: "img/green-marker.png"
-        },
-        aplaceofworship: {
-            icon: "img/red-marker.png"
-        },
-        clergycouncil: {
-            icon: "img/purple-marker.png"
-        },
-        lapdvalleybureaucommunitypolicestations: {
-            icon: "img/orange-marker.png"
-        },
-        women: {
-            icon: "img/fuscia-marker.png"
-        }
+        });
+        marker.data = org;
+        markers.push(marker);
 
-    };
-    if (result && results.status == "OK") {
-        for (var i = 0; i < result.length; i++) {
-            var info = result[i].formatted_address;
-            address = result[i].geometry.location;
-            marker = new google.maps.Marker({
-                position: address,
-                map: map,
-                icon: "img/green-marker.png",
-                //icon: icons[newClass].icon,
-                animation: google.maps.Animation.DROP
-            });
-
-            marker.addListener("click", function () {
-                infoWindow.setContent(info);
-                infoWindow.open(map, this);
-            });
-
-            markers.push(marker);
-        }
-        //need to loop through all markers and find closest markers to my position or entered zip
         var bounds = new google.maps.LatLngBounds(null);
-        for (var i = 0; i < 2; i++) {
+        for (var i = 0; i < markers.length; i++) {
             bounds.extend(markers[i].getPosition());
         }
-
 
         google.maps.event.addListener(map, 'idle', function (event) {
             var cnt = map.getCenter();
@@ -170,11 +133,26 @@ var onAddress = function (results) {
         onError(status);
     }
     map.fitBounds(bounds);
-    markers.splice(1);
+
+    addInfoWindow(marker);
 }
+
+var addInfoWindow = function(marker) {
+    var infowindow = new google.maps.InfoWindow({
+        content: marker.data.infoContent
+      });
+
+      marker.addListener('click', function() {
+        infowindow.open(map, this);
+      });
+ }
 
 var onError = function (error) {
     console.log(error);
+}
+
+var removeCards = function () {
+    $(".cloneRes").remove();
 }
 
 $(document).ready(startUp);
