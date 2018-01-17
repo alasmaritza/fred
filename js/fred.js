@@ -140,6 +140,7 @@ var onAddress = function (results) {
             marker = new google.maps.Marker({
                 position: address,
                 map: map,
+                icon: "img/green-marker.png",
                 //icon: icons[newClass].icon,
                 animation: google.maps.Animation.DROP
             });
