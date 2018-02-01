@@ -51,7 +51,7 @@ p small {
     margin:15px;
     word-wrap:break-word;
 }
-.cloneRes:hover {
+.cloneRes:hover, #directions:hover {
     cursor: pointer;
 }
 
@@ -86,7 +86,6 @@ p small {
 
 a.orgPhone, a.orgPhone:hover, a.orgSite, a.orgSite:hover {
     color:white;
-
 }
 
 @media (min-width: 576px) { 

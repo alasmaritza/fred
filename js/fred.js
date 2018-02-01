@@ -1,4 +1,4 @@
-var res, list, address, newClass;
+var res, list, address, newClass, zipCenter;
 var infoContent = null;
 var markers = [];
 
@@ -25,18 +25,18 @@ var setNewCenter = function (e, data) {
 }
 
 var onZipSuccess = function (data) {
-    var center = data.results[0].geometry.location;
+    zipCenter = data.results[0].geometry.location;
     var image = {
         url: "img/yellow-marker.png"
     }
     marker = new google.maps.Marker({
-        position: center,
+        position: zipCenter,
         map: map,
         icon: image,
         animation: google.maps.Animation.DROP
     });
     markers.push(marker);
-    map.setCenter(center);
+    map.setCenter(zipCenter);
 }
 
 var displayResources = function () {
@@ -74,8 +74,8 @@ var cloneResource = function () {
 
 var onSuccess = function (data) {
     for (let i = 0; i < data.length; i++) {
-       var orgs = data[i];
-       console.log(orgs)
+        var orgs = data[i];
+        console.log(orgs)
         var collRes = {};
         collRes.organization = orgs.name;
         collRes.phone = orgs.phone;
@@ -84,12 +84,12 @@ var onSuccess = function (data) {
         collRes.site = orgs.websiteURL;
         setResource(collRes);
         if (orgs.address) {
-            orgs.infoContent = '<span><strong>' + orgs.name + '</strong><br>' + orgs.address + '<br>' + orgs.addressLine2 + '</span>' + '<br>' + 
-            orgs.websiteURL + '<br>' + "<div id='directions' data-value='" + orgs.address + ' ' + orgs.addressLine2 + "'>Get Directions</div>";
+            orgs.infoContent = '<span><strong>' + orgs.name + '</strong><br>' + orgs.address + '<br>' + orgs.addressLine2 + '</span>' + '<br>' +
+                orgs.websiteURL + '<br>' + "<div id='directions' data-value='" + orgs.address + ' ' + orgs.addressLine2 + "'>Get Directions</div>";
             addressGet(orgs, onAddress, onError);
-        };   
-          
-    }  
+        };
+
+    }
 }
 
 var setResource = function (collRes) {
@@ -139,22 +139,27 @@ var onAddress = function (results, org, status) {
     addInfoWindow(marker);
 }
 
-var addInfoWindow = function(marker) {
+var addInfoWindow = function (marker) {
     var infowindow = new google.maps.InfoWindow({
         content: marker.data.infoContent
-      });
+    });
 
-      marker.addListener('click', function() {
+    marker.addListener('click', function () {
         infowindow.open(map, this);
-      });
- }
+    });
+}
 
- var getDirections = function() {
+var getDirections = function () {
     var select = this.dataset.value;
     console.log(select);
-    //window.open("https://maps.googleapis.com/maps/api/directions/json?origin=" + markers[0] + "&destination=" + select + "&key=AIzaSyDNwXQefIZFHE25kjvwHx2ilGuiKt8paQA");
-    window.open("https://www.google.com/maps/dir/" + pos.lat + "," + pos.lng + "/" + select);
- }
+    if (zipCenter) {
+        window.open("https://www.google.com/maps/dir/" + zipCenter.lat + "," + zipCenter.lng + "/" + select);
+    }
+
+    if (pos) {
+        window.open("https://www.google.com/maps/dir/" + pos.lat + "," + pos.lng + "/" + select);
+    }
+}
 
 var onError = function (error) {
     console.log(error);
