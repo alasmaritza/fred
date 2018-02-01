@@ -1,4 +1,4 @@
-var map, marker;
+var map, marker, pos;
 
 function initMap() {
     var findMe = document.getElementById('findMe');
@@ -140,8 +140,7 @@ function initMap() {
     google.maps.event.addDomListener(removeMe, 'focus', function() {
         for(var i = 1; i < markers.length; i ++) {
             markers[i].setMap(null);
-        }
-        
+        }       
     });
 
     google.maps.event.addDomListener(findMe, 'click', function () {
@@ -151,7 +150,7 @@ function initMap() {
         markers.shift();
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function (position) {
-                var pos = {
+                pos = {
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
                 };

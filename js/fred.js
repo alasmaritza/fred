@@ -9,6 +9,7 @@ function startUp() {
     $(".find").on("click", getResource);
     $("#resourceSearch").on("focus", removeCards);
     $(".resources").on("click", ".title", displayDesc);
+    $(".container").on('click', "#directions", getDirections);
     setTimeout(function () {
         initMap();
     }, 1000);
@@ -83,7 +84,8 @@ var onSuccess = function (data) {
         collRes.site = orgs.websiteURL;
         setResource(collRes);
         if (orgs.address) {
-            orgs.infoContent = '<span><strong>' + orgs.name + '</strong><br>' + orgs.address + '<br>' + orgs.addressLine2 + '</span>';
+            orgs.infoContent = '<span><strong>' + orgs.name + '</strong><br>' + orgs.address + '<br>' + orgs.addressLine2 + '</span>' + '<br>' + 
+            orgs.websiteURL + '<br>' + "<div id='directions' data-value='" + orgs.address + ' ' + orgs.addressLine2 + "'>Get Directions</div>";
             addressGet(orgs, onAddress, onError);
         };   
           
@@ -145,6 +147,13 @@ var addInfoWindow = function(marker) {
       marker.addListener('click', function() {
         infowindow.open(map, this);
       });
+ }
+
+ var getDirections = function() {
+    var select = this.dataset.value;
+    console.log(select);
+    //window.open("https://maps.googleapis.com/maps/api/directions/json?origin=" + markers[0] + "&destination=" + select + "&key=AIzaSyDNwXQefIZFHE25kjvwHx2ilGuiKt8paQA");
+    window.open("https://www.google.com/maps/dir/" + pos.lat + "," + pos.lng + "/" + select);
  }
 
 var onError = function (error) {
