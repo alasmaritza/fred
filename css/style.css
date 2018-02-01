@@ -22,7 +22,6 @@ img {
 
 img.techhire {
     padding:0px;
-    background-color: rgba(255, 255, 255, 0.3);
 }
 
 .dropdown-menu li:hover {
@@ -53,6 +52,11 @@ p small {
 }
 .cloneRes:hover, #directions:hover {
     cursor: pointer;
+}
+
+#directions:hover {
+    color:rgb(2, 94, 101);
+    font-weight:bold;
 }
 
 .cloneRes.homeless {
