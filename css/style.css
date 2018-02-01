@@ -49,6 +49,7 @@ p small {
 
 .cloneRes {
     margin:15px;
+    word-wrap:break-word;
 }
 .cloneRes:hover {
     cursor: pointer;
