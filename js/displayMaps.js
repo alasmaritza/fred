@@ -135,12 +135,12 @@ function initMap() {
         ]
     });
 
-   var infoWindow = new google.maps.InfoWindow;
+    var infoWindow = new google.maps.InfoWindow;
 
-    google.maps.event.addDomListener(removeMe, 'focus', function() {
-        for(var i = 1; i < markers.length; i ++) {
+    google.maps.event.addDomListener(removeMe, 'focus', function () {
+        for (var i = 1; i < markers.length; i++) {
             markers[i].setMap(null);
-        }       
+        }
     });
 
     google.maps.event.addDomListener(findMe, 'click', function () {

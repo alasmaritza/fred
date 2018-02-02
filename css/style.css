@@ -3,33 +3,36 @@ body {
 }
 
 .container {
-    color:white;
+    color: white;
 }
 
 #map div {
-    color:black;
+    color: black;
 }
 
 #findMe {
-    float:right;
+    float: right;
 }
 
 img {
-    display:block;
-    margin:auto;
-    padding:20px;
+    display: block;
+    margin: auto;
+    padding: 20px;
 }
 
 img.techhire {
-    padding:0px;
+    padding: 0px;
 }
 
 .dropdown-menu li:hover {
-    background-color:rgb(247, 247, 247);
+    background-color: rgb(247, 247, 247);
 }
 
-.dropdown-menu a, .dropdown-menu a:hover, .notZelda, .notZelda:hover {
-    color:black;
+.dropdown-menu a,
+.dropdown-menu a:hover,
+.notZelda,
+.notZelda:hover {
+    color: black;
     text-decoration: none;
 }
 
@@ -47,57 +50,60 @@ p small {
 } */
 
 .cloneRes {
-    margin:15px;
-    word-wrap:break-word;
+    margin: 15px;
+    word-wrap: break-word;
 }
-.cloneRes:hover, #directions:hover {
+
+.cloneRes:hover,
+#directions:hover {
     cursor: pointer;
 }
 
 #directions:hover {
-    color:rgb(2, 94, 101);
-    font-weight:bold;
+    color: rgb(2, 94, 101);
+    font-weight: bold;
 }
 
 .cloneRes.homeless {
-    border-top:3px solid rgb(32, 128, 130);
-    background-color:rgba(32, 128, 130,0.2);
+    border-top: 3px solid rgb(32, 128, 130);
+    background-color: rgba(32, 128, 130, 0.2);
 }
 
 .cloneRes.aplaceofworship {
-    border-top:3px solid rgb(245, 27, 27);
-    background-color:rgba(245, 27, 27,0.2);
+    border-top: 3px solid rgb(245, 27, 27);
+    background-color: rgba(245, 27, 27, 0.2);
 }
 
 .cloneRes.clergycouncil {
-    border-top:3px solid rgb(104, 25, 230);
-    background-color:rgba(104, 25, 230,0.2);
+    border-top: 3px solid rgb(104, 25, 230);
+    background-color: rgba(104, 25, 230, 0.2);
 }
 
 .cloneRes.lapdvalleybureaucommunitypolicestations {
-    border-top:3px solid rgb(255, 185, 64);
-    background-color:rgba(255, 185, 64,0.2);
+    border-top: 3px solid rgb(255, 185, 64);
+    background-color: rgba(255, 185, 64, 0.2);
 }
 
 .cloneRes.women {
-    border-top:3px solid rgb(193, 9, 107);
-    background-color: rgba(193,9,107,0.2);
+    border-top: 3px solid rgb(193, 9, 107);
+    background-color: rgba(193, 9, 107, 0.2);
 }
 
 .desc {
-    display:none;
+    display: none;
 }
 
-a.orgPhone, a.orgPhone:hover, a.orgSite, a.orgSite:hover {
-    color:white;
+a.orgPhone,
+a.orgPhone:hover,
+a.orgSite,
+a.orgSite:hover {
+    color: white;
 }
 
-@media (min-width: 576px) { 
+@media (min-width: 576px) {}
 
- }
-
- @media (min-width: 768px) {
+@media (min-width: 768px) {
     img.techhire {
         width: "400px";
     }
- }
+}

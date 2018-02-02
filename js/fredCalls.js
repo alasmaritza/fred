@@ -1,4 +1,4 @@
-var getResourcesCall = function(onSuccess, onError) {
+var getResourcesCall = function (onSuccess, onError) {
     var url = "https://5a3ab32bde64a00012627764.mockapi.io/resource";
     var settings = {
         cache: true,
@@ -11,7 +11,7 @@ var getResourcesCall = function(onSuccess, onError) {
     $.ajax(url, settings);
 }
 
-var getOrgsCall = function(id, onSuccess, onError) {
+var getOrgsCall = function (id, onSuccess, onError) {
     var url = "https://5a3ab32bde64a00012627764.mockapi.io/resource/" + id + "/location";
     var settings = {
         cache: true,
