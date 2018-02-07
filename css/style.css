@@ -44,11 +44,6 @@ p small {
     text-align: center;
 }
 
-/* button.find {
-    border: solid 1px;
-    border-color:lightgrey;
-} */
-
 .cloneRes {
     margin: 15px;
     word-wrap: break-word;
@@ -65,28 +60,10 @@ p small {
 }
 
 .cloneRes.homeless {
-    border-top: 3px solid rgb(32, 128, 130);
-    background-color: rgba(32, 128, 130, 0.2);
-}
-
-.cloneRes.aplaceofworship {
-    border-top: 3px solid rgb(245, 27, 27);
-    background-color: rgba(245, 27, 27, 0.2);
-}
-
-.cloneRes.clergycouncil {
-    border-top: 3px solid rgb(104, 25, 230);
-    background-color: rgba(104, 25, 230, 0.2);
-}
-
-.cloneRes.lapdvalleybureaucommunitypolicestations {
-    border-top: 3px solid rgb(255, 185, 64);
-    background-color: rgba(255, 185, 64, 0.2);
-}
-
-.cloneRes.women {
-    border-top: 3px solid rgb(193, 9, 107);
-    background-color: rgba(193, 9, 107, 0.2);
+    font-family: 'Lato';
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.721);
+    color:#7f8c8d;
 }
 
 .desc {
@@ -97,7 +74,7 @@ a.orgPhone,
 a.orgPhone:hover,
 a.orgSite,
 a.orgSite:hover {
-    color: white;
+    color: #17a2b8;
 }
 
 @media (min-width: 576px) {}
